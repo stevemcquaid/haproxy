@@ -12,6 +12,7 @@ RUN sed -i 's/^# \(.*-backports\s\)/\1/g' /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y haproxy=1.4.24-2ubuntu0.4
 RUN sed -i 's/^ENABLED=.*/ENABLED=1/' /etc/default/haproxy && rm -rf /var/lib/apt/lists/*
+RUN apt-get upgrade -y
 
 # Add files.
 ADD haproxy.cfg /etc/haproxy/haproxy.cfg
